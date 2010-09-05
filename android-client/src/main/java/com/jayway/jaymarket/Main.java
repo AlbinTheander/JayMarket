@@ -1,4 +1,4 @@
-package com.androidmaven.test;
+package com.jayway.jaymarket;
 
 
 import android.app.Activity;
