@@ -1,0 +1,23 @@
+<html>
+<head><title>Upload Form</title></head>
+<body>
+<h3>Upload your beautiful app here:</h3>
+
+<form METHOD="POST" ENCTYPE="multipart/form-data" action="http://localhost:8080/rest-api/webresources/upload">
+
+    <label for="description"> Description </label><br/>
+    <textarea id="description" name="description" ROWS="5" COLS="30"></textarea>
+
+    <label for="name"> Application name </label><br/>
+    <input id="name" type="text" name="name" SIZE="20"/> <br/>
+
+    <label for="file"> Your file here: </label><br/>
+    <input id="file" type="file" name="file"/>
+
+
+    <input type="submit" value="Submit"/>
+    <input type="reset" value="Reset"/>
+</form>
+
+</body>
+</html>
