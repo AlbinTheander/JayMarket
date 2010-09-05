@@ -26,5 +26,6 @@
 	<modules>
 		<module>rest-api</module>
 		<module>android-client</module>
-  </modules>
+		<module>android-client-unit-tests</module>
+	</modules>
 </project>
