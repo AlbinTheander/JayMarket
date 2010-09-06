@@ -1,14 +1,25 @@
 package com.jayway.jaymarket.model;
 
-import org.xmlpull.v1.XmlPullParser;
+import java.io.IOException;
 
-public class ApplicationParser {
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
+public class ApplicationParser extends AbstractParser {
 
 	private Application application;
 
-	public Application parse(XmlPullParser parser) {
+	public Application parse(XmlPullParser parser)
+			throws XmlPullParserException, IOException {
+		setPullParser(parser);
 		application = new Application();
-		application.setName("App " + (int) (Math.random() * 1000));
+		while (!isAtEndTag("application")) {
+			if (isAtStartTag("name")) {
+				application.setName(getPullParser().nextText());
+			} else {
+				getPullParser().next();
+			}
+		}
 		return application;
 	}
 }
