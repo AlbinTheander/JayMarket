@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaymarket>
+	<applications>
+		<application>
+			<name>Hello App</name>
+		</application>
+		<application>
+			<name>Nice to be here App</name>
+		</application>
+		<application>
+			<name>ByeBye App</name>
+		</application>
+	</applications>
+</jaymarket>

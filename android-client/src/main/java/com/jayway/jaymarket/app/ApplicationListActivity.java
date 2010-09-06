@@ -1,9 +1,5 @@
 package com.jayway.jaymarket.app;
 
-import java.io.IOException;
-
-import org.xmlpull.v1.XmlPullParserException;
-
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -11,7 +7,7 @@ import android.widget.ArrayAdapter;
 import com.jayway.jaymarket.R;
 import com.jayway.jaymarket.model.Application;
 import com.jayway.jaymarket.model.ApplicationList;
-import com.jayway.jaymarket.model.ApplicationListParser;
+import com.jayway.jaymarket.model.RestApplicationRepository;
 
 public class ApplicationListActivity extends ListActivity {
 
@@ -20,17 +16,12 @@ public class ApplicationListActivity extends ListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		try {
-			appList = new ApplicationListParser().parse(null);
-			setListAdapter(new ArrayAdapter<Application>(this,
-					R.layout.list_item, appList.getApps()));
-		} catch (XmlPullParserException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		setContentView(R.layout.application_list);
+		RestApplicationRepository repo = new RestApplicationRepository(
+				getString(R.string.base_url));
+		appList = repo.getApplications();
+		setListAdapter(new ArrayAdapter<Application>(this, R.layout.list_item,
+				appList.getApps()));
 	}
 
 }
