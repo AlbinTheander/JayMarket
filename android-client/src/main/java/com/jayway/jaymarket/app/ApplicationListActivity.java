@@ -7,18 +7,19 @@ import android.widget.ArrayAdapter;
 import com.jayway.jaymarket.R;
 import com.jayway.jaymarket.model.Application;
 import com.jayway.jaymarket.model.ApplicationList;
-import com.jayway.jaymarket.model.RestApplicationRepository;
+import com.jayway.jaymarket.model.ApplicationRepository;
 
 public class ApplicationListActivity extends ListActivity {
 
 	private ApplicationList appList;
+	private ActivityHelper helper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.application_list);
-		RestApplicationRepository repo = new RestApplicationRepository(
-				getString(R.string.base_url));
+		helper = new ActivityHelper(this);
+		ApplicationRepository repo = helper.getApplicationRepository();
 		appList = repo.getApplications();
 		setListAdapter(new ArrayAdapter<Application>(this, R.layout.list_item,
 				appList.getApps()));
