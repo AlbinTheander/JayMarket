@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:layout_gravity="left|center_vertical"
-	android:background="@drawable/bg_patch"
-	android:padding="5dp"
+	android:background="@drawable/blackframe"
+	android:layout_margin="5dp"
 	>
 	<TextView
 		android:id="@+id/list_item_text"
@@ -14,4 +14,4 @@
 		android:textColor="@color/list_text_color"
 		>
 	</TextView>
-</FrameLayout>
+</RelativeLayout>
