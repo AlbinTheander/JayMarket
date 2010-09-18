@@ -22,7 +22,7 @@ public class ApplicationListActivity extends ListActivity {
 		ApplicationRepository repo = helper.getApplicationRepository();
 		appList = repo.getApplications();
 		setListAdapter(new ArrayAdapter<Application>(this, R.layout.list_item,
-				appList.getApps()));
+				R.id.list_item_text, appList.getApps()));
 	}
 
 }
