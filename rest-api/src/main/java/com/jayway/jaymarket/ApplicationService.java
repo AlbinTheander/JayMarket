@@ -13,7 +13,6 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 
 import org.apache.commons.io.IOUtil;
 import org.grlea.log.SimpleLogger;
@@ -32,7 +31,6 @@ public class ApplicationService {
 
 	@GET
 	@Path("/applications")
-	@Produces("text/xml")
 	public Applications fetchThemAll() {
 		List<Application> applications = new ArrayList<Application>();
 
