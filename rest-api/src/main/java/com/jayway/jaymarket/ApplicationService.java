@@ -6,8 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -17,8 +15,9 @@ import javax.ws.rs.Path;
 import org.apache.commons.io.IOUtil;
 import org.grlea.log.SimpleLogger;
 
-import com.jayway.jaymarket.dto.Application;
+import com.jayway.jaymarket.dto.ApplicationRepository;
 import com.jayway.jaymarket.dto.Applications;
+import com.jayway.jaymarket.dto.InMemoryApplicationRepository;
 import com.sun.jersey.core.header.ContentDisposition;
 import com.sun.jersey.multipart.FormDataBodyPart;
 import com.sun.jersey.multipart.FormDataMultiPart;
@@ -29,16 +28,13 @@ import com.sun.jersey.multipart.FormDataMultiPart;
 public class ApplicationService {
 	public static SimpleLogger log = new SimpleLogger(ApplicationService.class);
 
+	// TODO: Should probably be injected by someone who knows spring or so
+	private ApplicationRepository repo = new InMemoryApplicationRepository();
+
 	@GET
 	@Path("/applications")
-	public Applications fetchThemAll() {
-		List<Application> applications = new ArrayList<Application>();
-
-		applications.add(new Application("Hello App"));
-		applications.add(new Application("Nice to be here App"));
-		applications.add(new Application("ByeBye  App"));
-
-		return new Applications(applications);
+	public Applications fetchThemAllXML() {
+		return repo.getApplications();
 	}
 
 	// TODO: check that file is an apk file
@@ -75,7 +71,6 @@ public class ApplicationService {
 			close(fileOut);
 			close(fileIn);
 		}
-
 		return "super";
 	}
 
