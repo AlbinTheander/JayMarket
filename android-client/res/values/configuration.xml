@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="base_url">http://10.0.2.2:8080/webresources/applications</string>
+<string name="base_url">http://10.0.2.2:8080/jaymarket/applications</string>
 </resources>
