@@ -6,15 +6,19 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URISyntaxException;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 
 import org.apache.commons.io.IOUtil;
 import org.grlea.log.SimpleLogger;
 
+import com.jayway.jaymarket.dto.Application;
 import com.jayway.jaymarket.dto.ApplicationRepository;
 import com.jayway.jaymarket.dto.Applications;
 import com.jayway.jaymarket.dto.InMemoryApplicationRepository;
@@ -33,8 +37,22 @@ public class ApplicationService {
 
 	@GET
 	@Path("/applications")
-	public Applications fetchThemAllXML() {
+	public Applications fetchThemAll() {
 		return repo.getApplications();
+	}
+
+	@GET
+	@Path("/applications/{appId}/apk")
+	@Produces("application/vnd.android.package-archive")
+	public Response getApk() throws URISyntaxException {
+		// TODO: How do I get the correct index?
+		Application application = repo.getApplications().getApplications()
+				.get(0);
+		InputStream apkIn = application.getApkFile();
+		String contentDisposition = "attachment; filename="
+				+ application.getApkFileName();
+		return Response.ok(apkIn)
+				.header("Content-Disposition", contentDisposition).build();
 	}
 
 	// TODO: check that file is an apk file
