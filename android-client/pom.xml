@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
 		<artifactId>root</artifactId>
@@ -24,6 +26,11 @@
 			<version>1.6_r2</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -41,7 +48,7 @@
 				<version>2.5.1</version>
 				<configuration>
 					<sdk>
-					<platform>4</platform>
+						<platform>4</platform>
 					</sdk>
 				</configuration>
 				<extensions>true</extensions>

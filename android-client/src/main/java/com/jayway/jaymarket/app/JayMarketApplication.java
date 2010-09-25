@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.jayway.jaymarket.R;
 import com.jayway.jaymarket.model.ApplicationRepository;
-import com.jayway.jaymarket.model.RestApplicationRepository;
+import com.jayway.jaymarket.model.JsonApplicationRepository;
 
 public class JayMarketApplication extends Application {
 
@@ -12,7 +12,7 @@ public class JayMarketApplication extends Application {
 
 	public ApplicationRepository getApplicationRepository() {
 		if (repo == null) {
-			repo = new RestApplicationRepository(getString(R.string.base_url));
+			repo = new JsonApplicationRepository(getString(R.string.base_url));
 		}
 		return repo;
 	}
