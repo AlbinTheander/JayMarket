@@ -11,7 +11,7 @@ public class ResourceApplication extends Application {
 	@Override
 	public InputStream getApkFile() {
 		// Get from Resource
-		return getClass().getResourceAsStream(getApkFileName());
+		return getClass().getResourceAsStream(getApkFilePath());
 	}
 
 }
