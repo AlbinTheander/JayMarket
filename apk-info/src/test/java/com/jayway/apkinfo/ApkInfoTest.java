@@ -42,4 +42,23 @@ public class ApkInfoTest {
 		assertNotNull(ApkInfo.getInfo(apkFile.getAbsolutePath()));
 	}
 
+	@Test
+	public void returnCorrectApkInfo() {
+		ApkInfo info = ApkInfo.getInfo(apkFile.getAbsolutePath());
+		assertEquals("com.jayway.hello1", info.getPackageName());
+		assertEquals("1", info.getVersionCode());
+		assertEquals("1.0", info.getVersionName());
+		assertEquals("Hello 1", info.getName());
+	}
+
+	@Test
+	public void extractIconSuccessfully() throws IOException {
+		File iconFile = File.createTempFile("icon", ".png");
+		ApkInfo info = ApkInfo.getInfo(apkFile.getAbsolutePath());
+		info.extractIcon(iconFile.getAbsolutePath());
+		assertTrue(iconFile.exists());
+		System.out.println(iconFile.getAbsolutePath());
+		iconFile.delete();
+	}
+
 }
