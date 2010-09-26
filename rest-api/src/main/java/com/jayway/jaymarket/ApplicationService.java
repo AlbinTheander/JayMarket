@@ -41,7 +41,7 @@ public class ApplicationService {
 	@Produces({ MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
 	public ApplicationsDTO fetchThemAll(@Context UriInfo info) {
 		Applications applicatons = repo.getApplications();
-        return ApplicationModelToDTOAdapter.getApplications(applicatons, info.getBaseUri().toString());
+        return ApplicationModelToDTOAdapter.convertApplications(applicatons, info.getBaseUri().toString());
 	}
 
 	@GET
