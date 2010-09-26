@@ -25,5 +25,10 @@ public class InMemoryApplicationRepository implements ApplicationRepository {
         return applications.get(appId);
     }
 
+    @Override
+    public boolean storeApplication(String name, String description, String filename) {
+        return false;
+    }
+
 
 }

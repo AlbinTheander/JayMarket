@@ -128,7 +128,7 @@
         <dependency>
         	<groupId>commons-io</groupId>
         	<artifactId>commons-io</artifactId>
-        	<version>20030203.000550</version>
+        	<version>1.4</version>
         	<type>jar</type>
         	<scope>compile</scope>
         </dependency>

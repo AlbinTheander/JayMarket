@@ -10,4 +10,6 @@ public interface ApplicationRepository {
 
     Application getApplication (String appId);
 
+    boolean storeApplication(String name, String description, String filename);
+
 }
