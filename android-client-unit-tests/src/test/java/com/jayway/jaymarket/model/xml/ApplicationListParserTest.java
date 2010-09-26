@@ -1,4 +1,4 @@
-package com.jayway.jaymarket.model;
+package com.jayway.jaymarket.model.xml;
 
 import static org.junit.Assert.*;
 
@@ -11,6 +11,10 @@ import org.junit.Test;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
+
+import com.jayway.jaymarket.model.Application;
+import com.jayway.jaymarket.model.ApplicationList;
+import com.jayway.jaymarket.model.xml.ApplicationListParser;
 
 public class ApplicationListParserTest {
 

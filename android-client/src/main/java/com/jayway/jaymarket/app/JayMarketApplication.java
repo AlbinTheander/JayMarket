@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.jayway.jaymarket.R;
 import com.jayway.jaymarket.model.ApplicationRepository;
-import com.jayway.jaymarket.model.JsonApplicationRepository;
+import com.jayway.jaymarket.model.json.JsonApplicationRepository;
 
 public class JayMarketApplication extends Application {
 

@@ -1,4 +1,4 @@
-package com.jayway.jaymarket.model;
+package com.jayway.jaymarket.model.xml;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

@@ -1,4 +1,4 @@
-package com.jayway.jaymarket.model;
+package com.jayway.jaymarket.model.xml;
 
 import java.io.IOException;
 
@@ -12,13 +12,16 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-public class RestApplicationRepository implements ApplicationRepository {
+import com.jayway.jaymarket.model.ApplicationList;
+import com.jayway.jaymarket.model.ApplicationRepository;
+
+public class XMLApplicationRepository implements ApplicationRepository {
 
 	private HttpClient httpClient;
 
 	private String applicationListUrl;
 
-	public RestApplicationRepository(String applicationListUrl) {
+	public XMLApplicationRepository(String applicationListUrl) {
 		super();
 		this.applicationListUrl = applicationListUrl;
 		httpClient = new DefaultHttpClient();

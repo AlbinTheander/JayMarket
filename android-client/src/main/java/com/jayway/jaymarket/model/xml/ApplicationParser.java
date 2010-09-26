@@ -1,9 +1,11 @@
-package com.jayway.jaymarket.model;
+package com.jayway.jaymarket.model.xml;
 
 import java.io.IOException;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
+import com.jayway.jaymarket.model.Application;
 
 public class ApplicationParser extends AbstractParser {
 

@@ -1,4 +1,4 @@
-package com.jayway.jaymarket.model;
+package com.jayway.jaymarket.model.json;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,6 +12,10 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.jayway.jaymarket.model.Application;
+import com.jayway.jaymarket.model.ApplicationList;
+import com.jayway.jaymarket.model.ApplicationRepository;
 
 public class JsonApplicationRepository implements ApplicationRepository {
 	private HttpClient httpClient;
