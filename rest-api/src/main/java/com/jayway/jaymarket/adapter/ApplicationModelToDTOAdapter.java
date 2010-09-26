@@ -31,7 +31,7 @@ public class ApplicationModelToDTOAdapter {
     private static String createDownloadURL(String appId, String baseURL){
         StringBuilder builder = new StringBuilder();
         builder.append(baseURL);
-        builder.append("/applications/");
+        builder.append("applications/");
         builder.append(appId);
         builder.append("/apk");
         return builder.toString();
