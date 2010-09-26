@@ -2,12 +2,12 @@ package com.jayway.jaymarket.model;
 
 public class Application {
 
+	private String id;
+
 	private String name;
 
 	public Application() {
-        
-    }
-
+	}
 
 	public void setName(String name) {
 		this.name = name;
@@ -17,9 +17,17 @@ public class Application {
 		return name;
 	}
 
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getId() {
+		return id;
+	}
+
 	@Override
 	public String toString() {
-		return name;
+		return "Application [id=" + id + ", name=" + name + "]";
 	}
 
 }
