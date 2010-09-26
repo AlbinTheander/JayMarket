@@ -18,7 +18,7 @@ public class ApplicationDetailsActivity extends Activity {
 
 	private ActivityHelper helper;
 	private Application app;
-	private int appId;
+	private String appId;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +27,8 @@ public class ApplicationDetailsActivity extends Activity {
 		helper = new ActivityHelper(this);
 		ApplicationRepository repo = helper.getApplicationRepository();
 		Intent intent = getIntent();
-		appId = Integer.parseInt(intent.getData().getQueryParameter("appId"));
-		app = repo.getApplications().getApps().get(appId);
+		appId = intent.getData().getQueryParameter("appId");
+		app = repo.getApplication(appId);
 		TextView titleTV = (TextView) findViewById(R.id.title);
 		titleTV.setText(app.getName());
 		Button installButton = (Button) findViewById(R.id.install_button);

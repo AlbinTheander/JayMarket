@@ -12,6 +12,7 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import com.jayway.jaymarket.model.Application;
 import com.jayway.jaymarket.model.ApplicationList;
 import com.jayway.jaymarket.model.ApplicationRepository;
 
@@ -21,6 +22,8 @@ public class XMLApplicationRepository implements ApplicationRepository {
 
 	private String applicationListUrl;
 
+	private ApplicationList list;
+
 	public XMLApplicationRepository(String applicationListUrl) {
 		super();
 		this.applicationListUrl = applicationListUrl;
@@ -28,10 +31,26 @@ public class XMLApplicationRepository implements ApplicationRepository {
 	}
 
 	public ApplicationList getApplications() {
+		if (list == null) {
+			list = getApplicationsFromServer();
+		}
+		return list;
+	}
+
+	public Application getApplication(String id) {
+		for (Application app : getApplications().getApps()) {
+			if (id.equals(app.getId()))
+				return app;
+		}
+		return null;
+	}
+
+	private ApplicationList getApplicationsFromServer() {
 		HttpGet request = new HttpGet(applicationListUrl);
 		try {
-			return httpClient.execute(request,
+			list = httpClient.execute(request,
 					new ResponseToApplicationHandler());
+			return list;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

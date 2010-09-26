@@ -4,4 +4,6 @@ public interface ApplicationRepository {
 
 	ApplicationList getApplications();
 
+	Application getApplication(String id);
+
 }

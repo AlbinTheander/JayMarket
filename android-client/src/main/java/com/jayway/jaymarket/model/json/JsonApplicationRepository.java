@@ -12,6 +12,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.jayway.jaymarket.model.Application;
 import com.jayway.jaymarket.model.ApplicationList;
 import com.jayway.jaymarket.model.ApplicationRepository;
 
@@ -33,6 +34,14 @@ public class JsonApplicationRepository implements ApplicationRepository {
 			getApplicationsFromServer();
 		}
 		return list;
+	}
+
+	public Application getApplication(String id) {
+		for (Application app : getApplications().getApps()) {
+			if (id.equals(app.getId()))
+				return app;
+		}
+		return null;
 	}
 
 	public ApplicationList getApplicationsFromServer() {
