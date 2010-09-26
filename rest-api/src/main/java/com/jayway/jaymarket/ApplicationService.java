@@ -8,11 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URISyntaxException;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -46,10 +42,9 @@ public class ApplicationService {
 	@GET
 	@Path("/applications/{appId}/apk")
 	@Produces("application/vnd.android.package-archive")
-	public Response getApk() throws URISyntaxException {
+	public Response getApk(@PathParam("appId") String appId) throws URISyntaxException {
 		// TODO: How do I get the correct index?
-		Application application = repo.getApplications().getApplications()
-				.get(0);
+		Application application = repo.getApplication(appId);
 		InputStream apkIn = application.getApkFile();
 		String contentDisposition = "attachment; filename="
 				+ application.getApkFileName();

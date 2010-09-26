@@ -4,8 +4,8 @@ import java.io.InputStream;
 
 public class ResourceApplication extends Application {
 
-	public ResourceApplication(String name, String apkFileName) {
-		super(name, apkFileName);
+	public ResourceApplication(String id, String name, String apkFileName) {
+		super(id, name, apkFileName);
 	}
 
 	@Override

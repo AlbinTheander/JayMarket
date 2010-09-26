@@ -1,7 +1,6 @@
 package com.jayway.jaymarket.dto;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -15,22 +14,22 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "jaymarket")
 @XmlType(name = "", propOrder = { "applications" })
 public class Applications {
-	private List<Application> applications = new ArrayList<Application>();
+	private Map<String, Application> applications = new HashMap<String,Application>();
 
 	public Applications() {
 	}
 
-	public Applications(List<Application> applications) {
-		this.applications = applications;
-	}
-
 	@XmlElement(name = "application", required = true)
 	@XmlElementWrapper(name = "applications")
-	public List<Application> getApplications() {
-		return applications;
+	public Collection<Application> getApplications() {
+		return applications.values();
 	}
 
 	public void add(Application app) {
-		applications.add(app);
+		applications.put(app.getId(), app);
 	}
+
+    public Application get(String appId) {
+        return applications.get(appId);
+    }
 }

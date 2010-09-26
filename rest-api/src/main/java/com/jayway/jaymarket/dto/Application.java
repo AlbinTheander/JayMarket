@@ -14,15 +14,17 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(name = "", propOrder = { "name" })
+@XmlType(name = "", propOrder = { "id", "name"})
 public class Application {
 	private String name;
+    private String id;
 	private String apkFilePath;
 
 	public Application() {
 	}
 
-	public Application(String name, String apkFileName) {
+	public Application(String id, String name, String apkFileName) {
+        this.id = id;
 		this.name = name;
 		this.apkFilePath = apkFileName;
 	}
@@ -50,8 +52,17 @@ public class Application {
 		}
 	}
 
-	@Override
-	public String toString() {
-		return "Application{" + "name='" + name + '\'' + '}';
-	}
+    @Override
+    public String toString() {
+        return "Application{" +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
+                ", apkFilePath='" + apkFilePath + '\'' +
+                '}';
+    }
+
+    @XmlElement(required = true)
+    public String getId() {
+        return id;
+    }
 }
