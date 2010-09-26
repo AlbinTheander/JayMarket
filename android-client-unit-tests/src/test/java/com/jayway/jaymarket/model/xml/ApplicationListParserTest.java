@@ -14,7 +14,6 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import com.jayway.jaymarket.model.Application;
 import com.jayway.jaymarket.model.ApplicationList;
-import com.jayway.jaymarket.model.xml.ApplicationListParser;
 
 public class ApplicationListParserTest {
 
