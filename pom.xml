@@ -7,18 +7,7 @@
 	<name>JayMarket root project</name>
 	<version>0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.mortbay.jetty</groupId>
-					<artifactId>jetty-maven-plugin</artifactId>
-					<version>8.0.0.M1</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
+    
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
