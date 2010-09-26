@@ -9,16 +9,20 @@ import java.io.OutputStream;
 import java.net.URISyntaxException;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
+import com.jayway.jaymarket.adapter.ApplicationModelToDTOAdapter;
+import com.jayway.jaymarket.dto.ApplicationsDTO;
+import com.jayway.jaymarket.repository.ApplicationRepository;
+import com.jayway.jaymarket.repository.InMemoryApplicationRepository;
 import org.apache.commons.io.IOUtil;
 import org.grlea.log.SimpleLogger;
 
-import com.jayway.jaymarket.dto.Application;
-import com.jayway.jaymarket.dto.ApplicationRepository;
-import com.jayway.jaymarket.dto.Applications;
-import com.jayway.jaymarket.dto.InMemoryApplicationRepository;
+import com.jayway.jaymarket.model.Application;
+import com.jayway.jaymarket.model.Applications;
 import com.sun.jersey.core.header.ContentDisposition;
 import com.sun.jersey.multipart.FormDataBodyPart;
 import com.sun.jersey.multipart.FormDataMultiPart;
@@ -35,8 +39,9 @@ public class ApplicationService {
 	@GET
 	@Path("/applications")
 	@Produces({ MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
-	public Applications fetchThemAll() {
-		return repo.getApplications();
+	public ApplicationsDTO fetchThemAll(@Context UriInfo info) {
+		Applications applicatons = repo.getApplications();
+        return ApplicationModelToDTOAdapter.getApplications(applicatons, info.getBaseUri().toString());
 	}
 
 	@GET

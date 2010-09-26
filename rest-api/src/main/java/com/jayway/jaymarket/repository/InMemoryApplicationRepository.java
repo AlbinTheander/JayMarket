@@ -1,4 +1,8 @@
-package com.jayway.jaymarket.dto;
+package com.jayway.jaymarket.repository;
+
+import com.jayway.jaymarket.model.Applications;
+import com.jayway.jaymarket.model.ResourceApplication;
+import com.jayway.jaymarket.model.Application;
 
 public class InMemoryApplicationRepository implements ApplicationRepository {
 

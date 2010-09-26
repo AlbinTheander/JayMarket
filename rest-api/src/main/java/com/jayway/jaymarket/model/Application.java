@@ -1,4 +1,4 @@
-package com.jayway.jaymarket.dto;
+package com.jayway.jaymarket.model;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

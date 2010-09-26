@@ -1,5 +1,7 @@
 package com.jayway.jaymarket.dto;
 
+import com.jayway.jaymarket.dto.ApplicationDTO;
+
 import java.util.*;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -13,23 +15,23 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "jaymarket")
 @XmlType(name = "", propOrder = { "applications" })
-public class Applications {
-	private Map<String, Application> applications = new HashMap<String,Application>();
+public class ApplicationsDTO {
+	private Map<String, ApplicationDTO> applications = new HashMap<String,ApplicationDTO>();
 
-	public Applications() {
+	public ApplicationsDTO() {
 	}
 
 	@XmlElement(name = "application", required = true)
 	@XmlElementWrapper(name = "applications")
-	public Collection<Application> getApplications() {
+	public Collection<ApplicationDTO> getApplications() {
 		return applications.values();
 	}
 
-	public void add(Application app) {
+	public void add(ApplicationDTO app) {
 		applications.put(app.getId(), app);
 	}
 
-    public Application get(String appId) {
+    public ApplicationDTO get(String appId) {
         return applications.get(appId);
     }
 }

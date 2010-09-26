@@ -1,4 +1,6 @@
-package com.jayway.jaymarket.dto;
+package com.jayway.jaymarket.model;
+
+import com.jayway.jaymarket.model.Application;
 
 import java.io.InputStream;
 
