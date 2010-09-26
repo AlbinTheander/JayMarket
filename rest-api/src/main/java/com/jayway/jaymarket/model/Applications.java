@@ -1,8 +1,8 @@
 package com.jayway.jaymarket.model;
 
-import com.jayway.jaymarket.dto.ApplicationDTO;
-
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "jaymarket")
 @XmlType(name = "", propOrder = { "applications" })
 public class Applications {
-	private Map<String, Application> applications = new HashMap<String,Application>();
+	private Map<String, Application> applications = new HashMap<String, Application>();
 
 	public Applications() {
 	}
@@ -31,7 +31,7 @@ public class Applications {
 		applications.put(app.getId(), app);
 	}
 
-    public Application get(String appId) {
-        return applications.get(appId);
-    }
+	public Application get(String appId) {
+		return applications.get(appId);
+	}
 }
