@@ -31,7 +31,7 @@ public class JsonApplicationParser {
 		Application app = new Application();
 		app.setName(jsonApp.optString("name", ""));
 		app.setId(jsonApp.optString("id", ""));
+		app.setApkFileUrl(jsonApp.optString("apkFileURL", ""));
 		return app;
 	}
-
 }

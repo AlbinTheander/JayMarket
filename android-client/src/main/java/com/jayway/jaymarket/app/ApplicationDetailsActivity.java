@@ -42,7 +42,7 @@ public class ApplicationDetailsActivity extends Activity {
 					"Will install " + app.getName(), Toast.LENGTH_LONG);
 			toast.show();
 			ApkInstaller.installApk(ApplicationDetailsActivity.this,
-					getString(R.string.base_url) + "/" + appId + "/apk");
+					app.getApkFileUrl());
 		}
 
 	}

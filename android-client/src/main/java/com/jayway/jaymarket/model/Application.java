@@ -6,6 +6,8 @@ public class Application {
 
 	private String name;
 
+	private String apkFileUrl;
+
 	public Application() {
 	}
 
@@ -23,6 +25,14 @@ public class Application {
 
 	public String getId() {
 		return id;
+	}
+
+	public void setApkFileUrl(String apkFileUrl) {
+		this.apkFileUrl = apkFileUrl;
+	}
+
+	public String getApkFileUrl() {
+		return apkFileUrl;
 	}
 
 	@Override
