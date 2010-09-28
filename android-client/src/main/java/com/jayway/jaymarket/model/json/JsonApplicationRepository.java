@@ -10,8 +10,8 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
-import org.json.JSONObject;
 
+import com.google.gson.Gson;
 import com.jayway.jaymarket.model.Application;
 import com.jayway.jaymarket.model.ApplicationList;
 import com.jayway.jaymarket.model.ApplicationRepository;
@@ -64,10 +64,8 @@ public class JsonApplicationRepository implements ApplicationRepository {
 		InputStream in = response.getEntity().getContent();
 		String json = readToString(in);
 		System.out.println(json);
-		JSONObject wrapper = new JSONObject(json);
-		JsonApplicationParser parser = new JsonApplicationParser();
-		return parser.createApplicationList(wrapper
-				.getJSONObject("applications"));
+		Gson gson = new Gson();
+		return gson.fromJson(json, ServerData.class).applications;
 	}
 
 	private String readToString(InputStream in) throws IOException {
@@ -79,6 +77,10 @@ public class JsonApplicationRepository implements ApplicationRepository {
 			sb.append(line).append('\n');
 		}
 		return sb.toString();
+	}
+
+	private static class ServerData {
+		ApplicationList applications;
 	}
 
 }
